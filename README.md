@@ -33,9 +33,7 @@ Perintah `npx prisma migrate dev --name init` membaca `schema.prisma` lalu membu
 
 `npx prisma db seed` menjalankan `prisma/seed.ts` dan memasukkan 4 produk.
 
-| Sebelum | Sesudah |
-| --- | --- |
-| Tabel kosong (lihat gambar sesudah migrasi di atas) | ![Neon sesudah seed](docs/screenshots/04-neon-after-seed.png) |
+![Neon sesudah seed](docs/screenshots/04-neon-after-seed.png)
 
 ### 3. GET: menampilkan semua data
 
