@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Toko Alat Tulis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="eyebrow">Express REST API · Prisma · Neon PostgreSQL</p>
+      <h1>Katalog Toko Alat Tulis</h1>
+      <p class="sub">Data produk diambil dan diubah lewat endpoint <code>/api/products</code>.</p>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card form-card">
+      <h2 id="form-title">Tambah Produk</h2>
+      <form id="product-form" autocomplete="off">
+        <input type="hidden" id="product-id" />
+        <label>Nama produk
+          <input type="text" id="name" placeholder="cth. Penghapus Putih" required />
+        </label>
+        <label>Kategori
+          <select id="category" required>
+            <option value="Alat Tulis">Alat Tulis</option>
+            <option value="Buku">Buku</option>
+            <option value="Perlengkapan">Perlengkapan</option>
+            <option value="Kertas">Kertas</option>
+          </select>
+        </label>
+        <div class="row">
+          <label>Harga (Rp)
+            <input type="number" id="price" min="0" step="100" placeholder="3000" required />
+          </label>
+          <label>Stok
+            <input type="number" id="stock" min="0" step="1" placeholder="50" required />
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn primary">Tambah (POST)</button>
+          <button type="button" id="cancel-btn" class="btn ghost" hidden>Batal</button>
+        </div>
+      </form>
+
+      <div class="log">
+        <h3>Request terakhir</h3>
+        <ul id="log-list"><li class="muted">Belum ada request.</li></ul>
+      </div>
+    </section>
+
+    <section class="card list-card">
+      <div class="list-head">
+        <h2>Daftar Produk <span id="count" class="pill">0</span></h2>
+        <input type="search" id="search" placeholder="Cari nama produk…" />
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Kategori</th>
+              <th class="num">Harga</th>
+              <th class="num">Stok</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="product-body"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="muted empty" hidden>Belum ada produk.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
